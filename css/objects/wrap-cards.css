@@ -1,0 +1,10 @@
+.wrap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.wrap-cards > .memory-card {
+  margin-bottom: 10px;
+}
