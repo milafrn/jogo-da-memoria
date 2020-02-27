@@ -7,13 +7,6 @@ const createMemoryCard = () => {
       class='icon'
       />
     </article>
-  `;
-
-  return $memoryCard;
-};
-
-const createMemoryCardFront = () => {
-  const $memoryCard = `
     <article class="memory-card -front">
       <img 
       src='img/icon-c.png' 
@@ -26,7 +19,3 @@ const createMemoryCardFront = () => {
 
   return $memoryCard;
 };
-
-function handleClick() {
-  console.log;
-}
