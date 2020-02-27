@@ -8,6 +8,7 @@
   align-items: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   position: relative;
+  cursor: pointer;
 }
 .memory-card.-front {
   background-color: #fff;
