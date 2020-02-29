@@ -1,51 +1,52 @@
 const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();
-const $memoryCard = createMemoryCard(
-  "img/icon-collabcode.png",
-  "Gueio mascote da CollabCode"
-);
-const $memoryCardC = createMemoryCard(
-  "img/icon-c.png",
-  "Ícone de um livro da linguagem C++",
-  "-front"
-);
+const $memoryCard = createMemoryCard({
+  src: "img/icon-collabcode.png",
+  alt: "Gueio mascote da CollabCode"
+});
 
-const $memoryCardJs = createMemoryCard(
-  "img/-icon-js.png",
-  "Ícone de um livro da linguagem Javascript",
-  "-front"
-);
+const $memoryCardC = createMemoryCard({
+  nameClass: "-front",
+  src: "img/icon-c.png",
+  alt: "Ícone de um livro da linguagem C++"
+});
 
-const $memoryCardBug = createMemoryCard(
-  "img/icon-bug.png",
-  "Ícone de um bug",
-  "-front"
-);
+const $memoryCardJs = createMemoryCard({
+  src: "img/-icon-js.png",
+  alt: "Ícone de um livro da linguagem Javascript",
+  nameClass: "-front"
+});
 
-const $memoryCardJava = createMemoryCard(
-  "img/icon-java.png",
-  "Ícone de um livro da linguagem Java",
-  "-front"
-);
+const $memoryCardBug = createMemoryCard({
+  src: "img/icon-bug.png",
+  alt: "Ícone de um bug",
+  nameClass: "-front"
+});
 
-const $memoryCardPhp = createMemoryCard(
-  "img/icon-php.png",
-  "Ícone de um livro da linguagem Php",
-  "-front"
-);
+const $memoryCardJava = createMemoryCard({
+  src: "img/icon-java.png",
+  alt: "Ícone de um livro da linguagem Java",
+  nameClass: "-front"
+});
 
-const $memoryCardResponsivo = createMemoryCard(
-  "img/icon-responsivo.png",
-  "Ícone de design responsivo",
-  "-front"
-);
+const $memoryCardPhp = createMemoryCard({
+  src: "img/icon-php.png",
+  alt: "Ícone de um livro da linguagem Php",
+  nameClass: "-front"
+});
 
-const $memoryCardWoman = createMemoryCard(
-  "img/icon-woman.png",
-  "Ícone de uma mulher no computador",
-  "-front"
-);
+const $memoryCardResponsivo = createMemoryCard({
+  src: "img/icon-responsivo.png",
+  alt: "Ícone de design responsivo",
+  nameClass: "-front"
+});
+
+const $memoryCardWoman = createMemoryCard({
+  src: "img/icon-woman.png",
+  alt: "Ícone de uma mulher no computador",
+  nameClass: "-front"
+});
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
