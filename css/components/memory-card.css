@@ -12,7 +12,6 @@
 }
 .memory-card.-front {
   background-color: #fff;
-  display: none;
 }
 
 .memory-card.-front::before {
