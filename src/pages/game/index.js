@@ -1,7 +1,8 @@
-const $head = document.querySelector("head");
 const $root = document.querySelector("#root");
 
 const $cardsWrapper = createCardsWrapper();
+
+const createMemoryCard = memoryCard();
 
 const $memoryCardC = createMemoryCard({
   nameClass: "-front",
