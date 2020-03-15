@@ -35,3 +35,25 @@ $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardWoman);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
+
+function handleClick() {
+  const $memoryCards = document.querySelectorAll(".memory-card");
+
+  for (card of $memoryCards) {
+    const image = card.querySelector("img");
+    const imageBackup = image.src.toString();
+
+    card.addEventListener("click", function() {
+      this.classList.toggle("-back");
+      this.classList.toggle("-front");
+
+      if (this.classList.contains("-back")) {
+        image.setAttribute("src", "img/icon-collabcode.png");
+      } else {
+        image.setAttribute("src", imageBackup);
+      }
+    });
+  }
+}
+
+handleClick();

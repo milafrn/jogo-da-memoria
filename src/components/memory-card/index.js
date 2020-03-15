@@ -4,11 +4,10 @@ function memoryCard() {
 
   $style.textContent = `
     .memory-card {
+      display: flex;
       width: 155px;
       height: 155px;
-      background-color: #f25a70;
       border-radius: 30px;
-      display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
@@ -17,6 +16,9 @@ function memoryCard() {
     }
     .memory-card.-front {
       background-color: #fff;
+    }
+    .memory-card.-back{
+      background-color: #f25a70;
     }
 
     .memory-card.-front::before {
@@ -42,15 +44,12 @@ function memoryCard() {
   $head.insertBefore($style, null);
 
   return ({ src, alt, nameClass }) => `
-    <article class="memory-card ${nameClass}">
+    <article class="memory-card ${nameClass} ">
       <img 
       src="${src}" 
       alt='${alt}' 
       class='icon'
-      onClick="handleclick()"
       />
     </article>
   `;
 }
-
-const handleClick = () => console.log("ae");
