@@ -6,6 +6,7 @@ function createCardsWrapper() {
   const $style = document.createElement("style");
   $style.textContent = `
   .cards-wrapper {
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

@@ -3,7 +3,14 @@ function memoryCard() {
   const $style = document.createElement("style");
 
   $style.textContent = `
-    .memory-card {
+    .memory-card{
+      width: 155px;
+      height: 155px;
+      position: relative;
+    }
+    .memory-card .card {
+      width: 100%;
+      height: 100%;
       display: flex;
       width: 155px;
       height: 155px;
@@ -11,17 +18,25 @@ function memoryCard() {
       justify-content: center;
       align-items: center;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-      position: relative;
+      position: absolute;
       cursor: pointer;
-    }
-    .memory-card.-front {
-      background-color: #fff;
-    }
-    .memory-card.-back{
       background-color: #f25a70;
     }
 
-    .memory-card.-front::before {
+    .memory-card.-active .card {
+      display: none;
+    }
+
+    .memory-card.-active .card.-front {
+      display: flex;
+    }
+
+    .card.-front {
+      background-color: #fff;
+    }
+
+
+    .card.-front::before {
       content: "";
       width: 95px;
       height: 95px;
@@ -30,12 +45,12 @@ function memoryCard() {
       position: absolute;
     }
 
-    .memory-card > .icon {
+    .card > .icon {
       width: 100px;
       height: 100px;
     }
 
-    .memory-card.-front > .icon {
+    .card.-front > .icon {
       position: absolute;
       transform: translateY(-12px);
     }
@@ -43,13 +58,24 @@ function memoryCard() {
 
   $head.insertBefore($style, null);
 
-  return ({ src, alt, nameClass }) => `
-    <article class="memory-card ${nameClass} ">
-      <img 
-      src="${src}" 
-      alt='${alt}' 
-      class='icon'
-      />
-    </article>
+  return ({ src, alt }) => `
+    <div class="memory-card" onClick="handleClick(this)">
+      <article class="card -front">
+        <img 
+        src="${src}" 
+        alt='${alt}' 
+        class='icon'
+        />
+      </article>
+      <article class="card">
+        <img 
+        src="img/icon-collabcode.png" 
+        alt='O mascote da Collabcode o gueio' 
+        class='icon'
+        />
+      </article>
+    </div>
   `;
 }
+
+const handleClick = ($component) => $component.classList.toggle("-active");
