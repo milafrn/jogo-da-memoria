@@ -58,8 +58,8 @@ function memoryCard() {
 
   $head.insertBefore($style, null);
 
-  return ({ src, alt }) => `
-    <div class="memory-card" onClick="handleClick(this)">
+  return ({ src, alt, nameCard }) => `
+    <div class="memory-card" data-card='${nameCard}' onClick="handleClick(this)">
       <article class="card -front">
         <img 
         src="${src}" 
@@ -78,4 +78,41 @@ function memoryCard() {
   `;
 }
 
-const handleClick = ($component) => $component.classList.toggle("-active");
+let soma = 0;
+const handleClick = ($component) => {
+  if (qtdFlippedMemoryCard < 2) {
+    $component.classList.toggle("-active");
+    $component.classList.toggle("-flipped");
+  }
+  verifyCardLength($component);
+  verifyQtdActiveMemoryCard($component);
+};
+
+function verifyQtdActiveMemoryCard($component) {
+  if (qtdFlippedMemoryCard == 1) {
+    setTimeout(() => {
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active.-flipped"
+      );
+      $activeMemoryCards.forEach(($memoryCard) => {
+        $memoryCard.classList.remove("-active");
+        $memoryCard.classList.remove("-flipped");
+      });
+      qtdActiveMemoryCard = 0;
+      qtdFlippedMemoryCard = 0;
+    }, 1000);
+  }
+}
+
+function verifyCardLength($component) {
+  const $card = document.querySelectorAll(
+    `.memory-card.-active.-flipped[data-card='${$component.dataset.card}']`
+  );
+  if ($card.length == 2) {
+    soma++;
+    $card.forEach(($card) => {
+      $card.classList.remove("-flipped");
+    });
+  }
+  console.log("Somou: ", soma);
+}

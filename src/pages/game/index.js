@@ -5,18 +5,22 @@ const $cardsWrapper = createCardsWrapper();
 const createMemoryCard = memoryCard();
 
 const $memoryCardC = createMemoryCard({
+  nameCard: "card-C",
   src: "img/icon-c.png",
   alt: "Ícone de um livro da linguagem C++",
 });
 const $memoryCardJS = createMemoryCard({
+  nameCard: "card-Js",
   src: "img/icon-js.png",
   alt: "Ícone de um livro da linguagem Javascript",
 });
 const $memoryCardJava = createMemoryCard({
+  nameCard: "card-Java",
   src: "img/icon-java.png",
   alt: "Ícone de um livro da linguagem Java",
 });
 const $memoryCardWoman = createMemoryCard({
+  nameCard: "card-Woman",
   src: "img/icon-woman.png",
   alt: "Ícone de uma mina codando",
 });
@@ -31,33 +35,3 @@ $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardWoman);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
-
-const $memoryCards = $cardsWrapper.querySelectorAll(".memory-card");
-for (let card of $memoryCards) {
-  card.addEventListener("click", () => {
-    const $memoryCardsActive = $cardsWrapper.querySelectorAll(".-active");
-    verifyCardActive($memoryCardsActive);
-    cardBlocked($memoryCardsActive, $memoryCards);
-  });
-}
-
-function verifyCardActive($memoryCardsActive) {
-  if ($memoryCardsActive.length == 2) {
-    setTimeout(() => {
-      for (let cardActive of $memoryCardsActive) {
-        cardActive.classList.remove("-active");
-      }
-    }, 3000);
-  }
-}
-
-function cardBlocked($memoryCardsActive, $memoryCards) {
-  if ($memoryCardsActive.length == 2) {
-    for (let card of $memoryCards) {
-      card.style.pointerEvents = "none";
-      setTimeout(() => {
-        card.style.pointerEvents = "auto";
-      }, 3000);
-    }
-  }
-}
