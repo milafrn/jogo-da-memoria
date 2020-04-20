@@ -1,5 +1,4 @@
 let qtdActiveMemoryCard = 0;
-let qtdFlippedMemoryCard = 0;
 
 function createCardsWrapper() {
   const $cardsWrapper = document.createElement("section");
@@ -24,13 +23,8 @@ function createCardsWrapper() {
   $head.insertBefore($style, null);
 
   $cardsWrapper.addEventListener("click", () => {
-    qtdFlippedMemoryCard = $cardsWrapper.querySelectorAll(
-      ".memory-card.-active.-flipped"
-    ).length;
     qtdActiveMemoryCard = $cardsWrapper.querySelectorAll(".memory-card.-active")
       .length;
-    console.log("Qtd Flipped: ", qtdFlippedMemoryCard);
-    console.log("Qtd Active: ", qtdActiveMemoryCard);
   });
 
   return $cardsWrapper;
