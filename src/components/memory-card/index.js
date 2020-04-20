@@ -80,50 +80,47 @@ function memoryCard() {
   `;
 }
 
-let score = 0;
 const handleClick = ($component) => {
   if (!$component.classList.contains("-active")) {
-    if (qtdActiveMemoryCard < 2) {
-      $component.classList.toggle("-active");
-    }
+    checkActiveMemoryCard($component);
+    switchCard();
+  }
+};
 
-    if (qtdActiveMemoryCard == 1) {
-      const $memoryCards = document.querySelectorAll(".memory-card.-active");
+const checkActiveMemoryCard = ($component) => {
+  if (qtdActiveMemoryCard < 2) {
+    $component.classList.add("-active");
+  }
+};
 
-      if (
-        $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
-        $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
-      ) {
-        score++;
-        console.log("Score:", score);
-        $memoryCards.forEach(($memoryCard) => {
-          $memoryCard.classList.add("-score");
-          $memoryCard.classList.remove("-active");
-        });
-      } else {
-        setTimeout(() => {
-          const $activeMemoryCards = document.querySelectorAll(
-            ".memory-card.-active"
-          );
-          $activeMemoryCards.forEach(($memoryCard) => {
-            $memoryCard.classList.remove("-active");
-          });
-          qtdActiveMemoryCard = 0;
-        }, 1500);
-      }
+const switchCard = () => {
+  if (qtdActiveMemoryCard == 1) {
+    const $memoryCards = document.querySelectorAll(".memory-card.-active");
+
+    if (
+      $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ===
+      $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
+    ) {
+      score++;
+      console.log("Score:", score);
+      $memoryCards.forEach(($memoryCard) => {
+        $memoryCard.classList.add("-score");
+        $memoryCard.classList.remove("-active");
+      });
+    } else {
+      removeCardActive();
     }
   }
 };
 
-// function verifyCardLength($component) {
-//   const $card = document.querySelectorAll(
-//     `.memory-card.-active.-flipped[data-card='${$component.dataset.card}']`
-//   );
-//   if ($card.length == 2) {
-//     soma++;
-//     $card.forEach(($card) => {
-//       $card.classList.remove("-flipped");
-//     });
-//   }
-//   console.log("Somou: ", soma);
-// }
+const removeCardActive = () => {
+  setTimeout(() => {
+    const $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active"
+    );
+    $activeMemoryCards.forEach(($memoryCard) => {
+      $memoryCard.classList.remove("-active");
+    });
+    qtdActiveMemoryCard = 0;
+  }, 1500);
+};
