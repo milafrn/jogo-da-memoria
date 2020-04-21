@@ -1,7 +1,7 @@
 (function () {
   const $root = document.querySelector("#root");
 
-  const $cardsWrapper = createCardsWrapper();
+  const $cardsWrapper = createCardsWrapper().$cardsWrapper;
 
   const createMemoryCard = memoryCard.memoryCard();
 

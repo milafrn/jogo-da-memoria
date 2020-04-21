@@ -84,42 +84,13 @@ const memoryCard = (function () {
   const handleClick = ($component) => {
     if (!$component.classList.contains("-active")) {
       activeMemoryCard($component);
-      checkSure();
+      createCardsWrapper().checkSure();
     }
   };
 
   function activeMemoryCard($component) {
-    if (qtdActiveMemoryCard < 2) {
+    if (store.qtdActiveMemoryCard < 2) {
       $component.classList.add("-active");
-    }
-  }
-
-  function checkSure() {
-    if (qtdActiveMemoryCard == 1) {
-      const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
-      );
-
-      if (
-        $activeMemoryCards[0]
-          .querySelector(".-front .icon")
-          .getAttribute("src") ===
-        $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
-      ) {
-        store.score++;
-        console.log("Score:", store.score);
-        $activeMemoryCards.forEach(($memoryCard) => {
-          $memoryCard.classList.add("-score");
-          $memoryCard.classList.remove("-active");
-        });
-      } else {
-        setTimeout(() => {
-          $activeMemoryCards.forEach(($memoryCard) => {
-            $memoryCard.classList.remove("-active");
-          });
-          qtdActiveMemoryCard = 0;
-        }, 1500);
-      }
     }
   }
 
