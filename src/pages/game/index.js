@@ -1,10 +1,10 @@
 (function () {
   const $root = document.querySelector("#root");
 
-  const $cardsWrapper = createCardsWrapper().$cardsWrapper;
+  const $cardsWrapper = createCardsWrapper();
+  const createMemoryCard = memoryCard.create();
 
-  const createMemoryCard = memoryCard.memoryCard();
-
+  $pointBar = pointBar.create();
   const $memoryCardC = createMemoryCard({
     src: "img/icon-c.png",
     alt: "Ícone de um livro da linguagem C++",
@@ -31,5 +31,6 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardWoman);
 
+  $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })();
