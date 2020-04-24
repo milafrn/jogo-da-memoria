@@ -87,6 +87,9 @@ const memoryCard = (function () {
     if (!$component.classList.contains("-active")) {
       module._activeMemoryCard($component);
       module._checkSure();
+      const $start = document.querySelector(".number");
+
+      $start.innerHTML = store.score;
     }
   };
 

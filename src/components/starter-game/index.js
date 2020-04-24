@@ -26,6 +26,7 @@ const starterGame = (function () {
       <button class="start">Start</button>
     `;
   };
+
   return {
     create: module.create,
   };
