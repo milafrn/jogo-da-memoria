@@ -7,6 +7,7 @@ const gameButton = (function () {
 
     $style.textContent = `
       .game-button {
+        display: block;
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -22,9 +23,11 @@ const gameButton = (function () {
         font-size: 1.05em;
         cursor: pointer;
         box-shadow: 0px 5px 8px #3a4042;
+        transition: opacity 1000ms linear 0.2s, transform 1ms linear 0.8s;
       }
       .game-button.-inative {
-        display: none;
+        opacity: 0;
+        transform: translateX(-99999px);
       }
     `;
 

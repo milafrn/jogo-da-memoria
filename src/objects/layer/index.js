@@ -13,9 +13,12 @@ const layer = (function (){
         min-height: 100%;
         background-color: #5a5a5a;
         opacity: 0.5;
+        transform: translateX(0);
+        transition: opacity 1000ms linear 0.8s, transform 1ms linear 1.5s;
       }
       .layer.-inative {
-        display: none;
+        opacity: 0;
+        transform: translateX(-99999px);
       }
     `
     $head.insertBefore($style, null);
