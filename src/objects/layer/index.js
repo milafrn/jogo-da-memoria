@@ -14,6 +14,9 @@ const layer = (function (){
         background-color: #5a5a5a;
         opacity: 0.5;
       }
+      .layer.-inative {
+        display: none;
+      }
     `
     $head.insertBefore($style, null);
   }

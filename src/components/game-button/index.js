@@ -23,6 +23,9 @@ const gameButton = (function () {
         cursor: pointer;
         box-shadow: 0px 5px 8px #3a4042;
       }
+      .game-button.-inative {
+        display: none;
+      }
     `;
 
     $head.insertBefore($style, null);
@@ -36,7 +39,17 @@ const gameButton = (function () {
     `;
   };
 
+  module.handleClick = () => {
+    const $gameButton = document.querySelector('.game-button');
+    const $layer = document.querySelector('.layer');
+    $gameButton.addEventListener('click', () => {
+      $gameButton.classList.add('-inative')
+      $layer.classList.add('-inative');
+    })
+  }
+
   return {
     render: module.render,
+    handleClick: module.handleClick
   };
 })();
