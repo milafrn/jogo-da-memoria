@@ -34,25 +34,17 @@ const gameButton = (function () {
     $head.insertBefore($style, null);
   };
 
-  module.render = () => {
+
+  module.render = content => {
     module._style();
 
     return `
-      <button class="game-button">Start</button>
+      <button class="game-button">${content}</button>
     `;
   };
 
-  module.handleClick = () => {
-    const $gameButton = document.querySelector('.game-button');
-    const $layer = document.querySelector('.layer');
-    $gameButton.addEventListener('click', () => {
-      $gameButton.classList.add('-inative')
-      $layer.classList.add('-inative');
-    })
-  }
-
   return {
     render: module.render,
-    handleClick: module.handleClick
+    handleClick: module.handleClick,
   };
 })();
