@@ -22,12 +22,12 @@ const gameButton = (function () {
         text-transform: uppercase;
         font-size: 1.05em;
         cursor: pointer;
-        box-shadow: 0px 5px 8px #3a4042;
-        transition: opacity 1000ms linear 0.2s, transform 1ms linear 0.8s;
+        box-shadow: 0px 4px 8px #3a4042;
+        transition: opacity 300ms linear;
       }
-      .game-button.-inative {
+
+      .game-button.-disable {
         opacity: 0;
-        transform: translateX(-99999px);
       }
     `;
 
@@ -45,6 +45,5 @@ const gameButton = (function () {
 
   return {
     render: module.render,
-    handleClick: module.handleClick,
   };
 })();

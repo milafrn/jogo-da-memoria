@@ -13,6 +13,11 @@ const transparencyLayer = (function () {
         width: 100vw;
         height: 100vh;
         top: 0;
+        transition: opacity 400ms 300ms linear;
+      }
+      
+      .transparency-layer.-disable {
+        opacity: 0;
       }
     `;
 
