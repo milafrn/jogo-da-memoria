@@ -1,4 +1,4 @@
-const title = (function () {
+const pageTitle = (function () {
   const module = {}
 
   module._style = () => {

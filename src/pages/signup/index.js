@@ -1,14 +1,20 @@
 (function () {
   const $root = document.querySelector("#root");
 
-  const $loginButton = flatButton.render('Log in');
-  const $signupButton = flatButton.render('Sign up', true);
-  const $logo = logo.render();
-  const $title = title.render('Welcome!');
+  const $loginButton = flatButton.render("Log in");
+  const $signupButton = flatButton.render("Sign up", true);
 
+  const $pageWrapper = pageWrapper.render();
+
+  const $pageLogo = pageLogo.render();
+  const $pageTitle = pageTitle.render("Welcome!");
 
   $root.insertAdjacentHTML("beforeend", $loginButton);
   $root.insertAdjacentHTML("beforeend", $signupButton);
-  $root.insertAdjacentHTML('beforeend', $logo);
-  $root.insertAdjacentHTML('beforeend', $title);
+  $root.insertAdjacentHTML("beforeend", $pageWrapper);
+
+  const $selectPageWrapper = $root.querySelector(".page-wrapper");
+
+  $selectPageWrapper.insertAdjacentHTML("beforeend", $pageLogo);
+  $selectPageWrapper.insertAdjacentHTML("beforeend", $pageTitle);
 })();

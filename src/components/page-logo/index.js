@@ -1,4 +1,4 @@
-const logo = (function () {
+const pageLogo = (function () {
   const module = {};
 
   module._style = () => {
@@ -11,7 +11,9 @@ const logo = (function () {
         border-radius: 50%;
         width: 252px;
         height: 252px;
-        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .wrapper-logo > .logo {
         width: 171px;
