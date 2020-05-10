@@ -15,6 +15,9 @@ const flatButton = (function () {
         height: 176px;
         text-transform: uppercase;
       }
+      .flat-button.-modify {
+        background-color: #f25a70;
+      }
     `;
 
     $head.insertAdjacentElement("beforeend", $style);

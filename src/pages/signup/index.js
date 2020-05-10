@@ -8,7 +8,7 @@
   });
   const $sigupFlatButton = createFlatButton({
     text: "Sign up",
-    $nameClass: "-modify",
+    nameClass: "-modify",
   });
 
   $root.insertAdjacentHTML("beforeend", $loginFlatButton);
