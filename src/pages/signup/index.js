@@ -3,18 +3,14 @@
 
   const $loginButton = flatButton.render("Log in");
   const $signupButton = flatButton.render("Sign up", true);
-
-  const $pageWrapper = pageWrapper.render();
-
-  const $pageLogo = pageLogo.render();
-  const $pageTitle = pageTitle.render("Welcome!");
-
+  
+  const $logoCollabcode = logoCollabcode.render();
+  const $titleCollabcode = titleCollabcode.render('Welcome!');
+  
+  const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
+  
   $root.insertAdjacentHTML("beforeend", $loginButton);
   $root.insertAdjacentHTML("beforeend", $signupButton);
-  $root.insertAdjacentHTML("beforeend", $pageWrapper);
-
-  const $selectPageWrapper = $root.querySelector(".page-wrapper");
-
-  $selectPageWrapper.insertAdjacentHTML("beforeend", $pageLogo);
-  $selectPageWrapper.insertAdjacentHTML("beforeend", $pageTitle);
+  $root.insertAdjacentHTML('beforeend', $logoWrapper);
+  
 })();
