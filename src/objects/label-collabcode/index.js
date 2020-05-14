@@ -1,4 +1,4 @@
-const inputWrapper = (function(){
+const labelCollabcode = (function (){
   const module = {};
 
   module._style = () => {
@@ -6,21 +6,21 @@ const inputWrapper = (function(){
     const $style = document.createElement('style');
 
     $style.textContent = `
-      .input-wrapper {
-        display: flex;
-        justify-content: center;
+      .label-collabcode {
+        color: #3a4042;
+        font-size: 16px;
       }
-    `
+    `;
+
     $head.insertAdjacentElement('beforeend', $style);
   }
 
-  module.render = (...content) => {
+  module.render = content => {
     module._style();
-
-    return `
-      <div class="input-wrapper">${content.join('')}</div>
-    `
+    
+    return `<label class="label-collabcode">${content}</label>`
   }
+
 
   return {
     render: module.render,
