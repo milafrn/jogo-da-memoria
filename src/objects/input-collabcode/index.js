@@ -10,6 +10,7 @@ const inputCollabcode = (function(){
         display: block;
         width: 100%;
         color: #3a4042;
+        background-color: #fff;
         font-size: 18px;
         font-weight: bold;
         border-bottom: 2px solid rgba(58, 64, 66, 0.5);
