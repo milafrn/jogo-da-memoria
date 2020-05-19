@@ -4,7 +4,7 @@
   "description": "Projeto de estudo do curso (do front ao end)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "live-server"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/milafrn/jogo-da-memoria#readme",
   "dependencies": {
     "yup": "^0.28.5"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }
