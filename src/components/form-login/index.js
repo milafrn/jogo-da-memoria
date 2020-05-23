@@ -20,11 +20,7 @@ const formLogin = (function () {
       placeholder: "marco.bruno.br@gmail.com",
     });
 
-    const $passwordLabel = labelCollabcode.render("Password");
-    const $passwordInput = inputCollabcode.render({
-      placeholder: "********",
-      type: "password",
-    });
+    const $inputWrapper = inputWrapper.render();
 
     const $linkCollab = linkCollab.render({href: "#", content: "Forgot password ?"});
 
@@ -33,8 +29,7 @@ const formLogin = (function () {
     return `
       ${$usernameLabel}
       ${$usernameInput}
-      ${$passwordLabel}
-      ${$passwordInput}
+      ${$inputWrapper}
       ${$linkCollab}
       ${$btn}
     `;
