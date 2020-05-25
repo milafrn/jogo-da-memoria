@@ -20,8 +20,9 @@ const inputWrapper = (function () {
     const $passwordInput = inputCollabcode.render({
       placeholder: "********",
       type: "password",
+      nameClass: '-password',
     });
-    const $eyeCollab = eyeCollab.render(false);
+    const $eyeCollab = eyeCollab.render();
 
     return `
       ${$passwordLabel}
@@ -29,6 +30,16 @@ const inputWrapper = (function () {
       ${$eyeCollab}
     `;
   };
+
+  module.verifyEyeActive = () => {
+    const $passwordInput = document.querySelector('.input-collabcode.-password');
+    const $eyeCollab = document.querySelector('.eye-collab');
+    if($eyeCollab.classList.contains('-active')){
+      $passwordInput.setAttribute('type', "text");
+    } else if(!$eyeCollab.classList.contains('-active')){
+      $passwordInput.setAttribute('type', "password");
+    }
+  }
 
   module.render = () => {
     module._children();
@@ -39,5 +50,6 @@ const inputWrapper = (function () {
 
   return {
     render: module.render,
+    verifyEyeActive: module.verifyEyeActive
   }
 })();
