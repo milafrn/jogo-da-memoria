@@ -1,9 +1,9 @@
-const btnCollabcode = (function(){
+const btnCollabcode = (function () {
   const module = {};
 
   module._style = () => {
-    const $head = document.querySelector('head');
-    const $style = document.createElement('style');
+    const $head = document.querySelector("head");
+    const $style = document.createElement("style");
 
     $style.textContent = `
       .btn-collabcode {
@@ -21,18 +21,28 @@ const btnCollabcode = (function(){
       }
     `;
 
-    $head.insertAdjacentElement('beforeend', $style);
+    $head.insertAdjacentElement("beforeend", $style);
+  };
+
+  module.handleClick = (event, path) => {
+    event.preventDefault();
+
+    window.location.hash = `#/${path}`;
   }
 
-  module.render = content => {
+  module.render = ({ content = "", path = "" }) => {
     module._style();
 
     return `
-      <input class="btn-collabcode" type="submit" value="${content}">
-    `
-  }
+      <input 
+        class="btn-collabcode" 
+        type="submit" value="${content}"
+        onclick="btnCollabcode.handleClick(event, '${path}')">
+    `;
+  };
 
   return {
     render: module.render,
-  }
+    handleClick: module.handleClick
+  };
 })();

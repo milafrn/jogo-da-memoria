@@ -20,16 +20,30 @@ const formLogin = (function () {
       placeholder: "marco.bruno.br@gmail.com",
     });
 
-    const $inputWrapper = inputWrapper.render();
+    const $passwordLabel = labelCollabcode.render("Password");
+    const $passwordInput = inputCollabcode.render({
+      id: "password",
+      placeholder: "8 digite",
+      type: "password",
+    });
 
-    const $linkCollab = linkCollab.render({href: "#", content: "Forgot password ?"});
+    const $eyeCollabcode = eyeCollabcode.render({ attrFor: "password" });
 
-    const $btn = btnCollabcode.render("Login");
+    const $linkCollab = linkCollab.render({
+      href: "#",
+      content: "Forgot password ?",
+    });
+
+    const $btn = btnCollabcode.render({ content: "Login", path: "game" });
 
     return `
       ${$usernameLabel}
       ${$usernameInput}
-      ${$inputWrapper}
+
+      ${$passwordLabel}
+      ${$passwordInput}
+      ${$eyeCollabcode}
+
       ${$linkCollab}
       ${$btn}
     `;

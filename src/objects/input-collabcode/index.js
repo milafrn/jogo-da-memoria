@@ -1,9 +1,9 @@
-const inputCollabcode = (function(){
+const inputCollabcode = (function () {
   const module = {};
 
   module._style = () => {
-    const $head = document.querySelector('head');
-    const $style = document.createElement('style');
+    const $head = document.querySelector("head");
+    const $style = document.createElement("style");
 
     $style.textContent = `
       .input-collabcode {
@@ -17,18 +17,22 @@ const inputCollabcode = (function(){
         padding-top: 12px;
         padding-bottom: 12px;     
       }
-    `
+    `;
 
-    $head.insertAdjacentElement('beforeend', $style);
-  }
+    $head.insertAdjacentElement("beforeend", $style);
+  };
 
-  module.render = ({placeholder = "", type = "text", nameClass = ""}) => {
+  module.render = ({ id = "", placeholder = "", type = "text" }) => {
     module._style();
 
-    return `<input class="input-collabcode ${nameClass}" type="${type}" placeholder="${placeholder}">`
-  }
+    return `<input
+    id="${id}" 
+    class="input-collabcode" 
+    type="${type}" 
+    placeholder="${placeholder}">`;
+  };
 
   return {
     render: module.render,
-  }
-})()
+  };
+})();
