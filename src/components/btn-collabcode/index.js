@@ -26,7 +26,6 @@ const btnCollabcode = (function () {
 
   module.handleClick = (event, path) => {
     event.preventDefault();
-
     location.hash = `#/${path}`;
     location.reload(true);
   }
