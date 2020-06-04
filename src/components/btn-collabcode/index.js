@@ -36,7 +36,7 @@ const btnCollabcode = (function () {
     const $inputPassword = document.querySelector("#password");
     const errors = [];
     const $errorEmail = document.querySelector(".create-error.-email");
-    const $errorPassword = document.querySelector('.create-error.-password');
+    const $errorPassword = document.querySelector(".create-error.-password");
 
     const $createEmailError = createError.render({
       content: "Email Invalid",
@@ -48,13 +48,15 @@ const btnCollabcode = (function () {
       nameClass: "-password",
     });
 
-    if (!module._validateEmail($inputEmail)) {
+    if (!module._validateEmail($inputEmail.value)) {
       errors.push("Email Invalid");
       if (!$errorEmail) {
         $inputEmail.insertAdjacentHTML("afterend", $createEmailError);
       }
     } else {
-      $errorEmail.remove();
+      if ($errorEmail) {
+        $errorEmail.remove();
+      }
     }
 
     if ($inputPassword.value.length < 8) {
@@ -63,11 +65,12 @@ const btnCollabcode = (function () {
         $inputPassword.insertAdjacentHTML("afterend", $createPasswordError);
       }
     } else {
-      $errorPassword.remove();
+      if($errorPassword){
+        $errorPassword.remove();
+      }
     }
-    
 
-    if (errors === 0) {
+    if (errors.length === 0) {
       location.hash = `#/${path}`;
       location.reload(true);
     } else {
