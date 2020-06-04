@@ -15,7 +15,7 @@ const inputCollabcode = (function () {
         font-weight: bold;
         border-bottom: 2px solid rgba(58, 64, 66, 0.5);
         padding-top: 12px;
-        padding-bottom: 12px;     
+        padding-bottom: 12px; 
       }
     `;
 

@@ -6,7 +6,7 @@ const formLogin = (function () {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .form-signup {
+      .form-login {
         padding: 0 35px 30px;
       }
     `;
@@ -17,7 +17,9 @@ const formLogin = (function () {
   module._children = () => {
     const $usernameLabel = labelCollabcode.render("Username ou e-mail");
     const $usernameInput = inputCollabcode.render({
+      id: 'email',
       placeholder: "marco.bruno.br@gmail.com",
+      type: 'email',
     });
 
     const $passwordLabel = labelCollabcode.render("Password");
@@ -52,7 +54,7 @@ const formLogin = (function () {
   module.render = () => {
     module._style();
 
-    return `<form class="form-signup" action="" method="POST">${module._children()}</form>`;
+    return `<form class="form-login" action="" method="POST">${module._children()}</form>`;
   };
 
   return {
